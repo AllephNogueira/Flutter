@@ -79,11 +79,58 @@ void funcoesBool() {
 
   // Exemplo de comparação para verificar se o usuario é maior de idade
   // Pega ano que estamos
-  // subtrai com o ano de nascimento 
+  // subtrai com o ano de nascimento
   // EX 31
   // Verifica se o 31 e maior ou igual a 18
   bool maior = (2025 - 1994) >= 18;
   if (maior) {
     print("Usuario maior de idade");
   }
+}
+
+void listas() {
+  // Iniciando uma lista de String vazia
+  List<String> listaString = [];
+
+  var list = [10, 20, 30, 40, 110, 120]; // Lista podendo usar somente numeros
+  List lstDynamic = []; // Lista dinamica
+  // Lista dinamica, podemos colocar qualquer tipo de informacao
+  // Podemos usar inteiro, junto com string..
+
+  // Pegando o tamanho da lista
+  print("Tamanho da lista: ${listaString.length}");
+  print("Tamanho da lista: ${list.length}");
+  print("Tamanho da lista: ${lstDynamic.length}");
+
+  // Adicionando na lista
+  listaString.add("Alleph"); // So podemos adicionar Strings
+  list.add(1994); // So podemos adicionar numeros
+  lstDynamic.add(
+    "Alleph Nogueira",
+  ); // Podemos adicionar qualquer tipo de dados.
+  lstDynamic.add(1994);
+
+  // Verificando se a lista esta vazia ou nao
+  print(listaString.isEmpty); // Falso
+  print(
+    listaString.isNotEmpty,
+  ); // Aqui perguntamos: A lista nao esta vazia? // TRUE
+
+  // Se um valor contem na lista
+  print(list.contains(10)); // True pq tem 10 na lista.
+
+  // Funcao where na lista
+  // Vamos percorrer a lista e vamos retonrar os itens que sao maior que x e menor que y
+  // X seria os elementos da lista.
+  print(
+    list.where(
+      (elementosDaLista) => elementosDaLista > 9 && elementosDaLista < 99,
+    ),
+  );
+
+  // Reverse = invertendo a lista
+  print(list);
+  print(list.reversed);
+
+  // Atenção as listas tem varias funcionalidades, podemos estudar mais sobre.
 }

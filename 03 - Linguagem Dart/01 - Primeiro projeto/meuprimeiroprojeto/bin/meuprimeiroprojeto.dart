@@ -11,7 +11,10 @@ void main(List<String> arguments) {
   print("\n\n EXEMPLOS DE FUNCOES COM BOOLEANAS \n\n");
   meuprimeiroprojeto.funcoesBool();
 
-  print("\n EXEMPLOS DE FUNCOES COM STRINGS A CIMA \n");
+  print("\n\n EXEMPLPOS DE LISTAS \n\n");
+  meuprimeiroprojeto.listas();
+
+  print("\n\n\n EXEMPLOS DE FUNCOES A CIMA \n\n\n");
 
   // Duas formas de declarar variaveis em Dart
   // Explicitas
