@@ -4,6 +4,15 @@ import 'package:meuprimeiroprojeto/meuprimeiroprojeto.dart'
 void main(List<String> arguments) {
   print('Hello world: ${meuprimeiroprojeto.calculate()}!');
 
+  print("\n\n EXEMPLOS DE FUNCOES COM STRINGS \n\n");
+
+  meuprimeiroprojeto.funcaoString();
+
+  print("\n\n EXEMPLOS DE FUNCOES COM BOOLEANAS \n\n");
+  meuprimeiroprojeto.funcoesBool();
+
+  print("\n EXEMPLOS DE FUNCOES COM STRINGS A CIMA \n");
+
   // Duas formas de declarar variaveis em Dart
   // Explicitas
   String nome = "Alleph";
@@ -26,4 +35,10 @@ void main(List<String> arguments) {
   lista2.add("Alleph");
 
   print(nome2);
+
+  /// TIPOS DE DADOS DE STRINGS ///
+  String texto = "DIO STRINGS";
+  var texto2 = "DIO STRINGS 2";
+
+  print(texto);
 }
