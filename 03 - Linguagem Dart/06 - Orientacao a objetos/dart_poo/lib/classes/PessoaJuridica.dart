@@ -4,8 +4,8 @@ import 'package:dart_poo/classes/Pessoa.dart';
 class Pessoajuridica extends Pessoa {
   String _cnpj = "";
 
-  Pessoajuridica(String nome, String sobrenome, String endereco, String cnpj, TipoNotificacao tipoNotificacao)
-    : super(nome, sobrenome, endereco, tipoNotificacao) {
+  Pessoajuridica(String nome, String sobrenome, String endereco, String celular,  String email, String cnpj, {TipoNotificacao tipoNotificacao = TipoNotificacao.NENHUM})
+    : super(nome, sobrenome, endereco, celular, email, tipoNotificacao : tipoNotificacao) {
     this._cnpj = cnpj;
   }
 
@@ -24,7 +24,9 @@ class Pessoajuridica extends Pessoa {
       "Nome" : super.getNome(),
       "Sobrenome" : super.getSobrenome(),
       "Endereco" : super.getEndereco(),
-      "CNPJ" : _cnpj,
+      "CNPJ" : getCnpj(),
+      "Celular" : super.getCelular(),
+      "Email" : super.getEmail(),
       "TipoNotificacao" : super.getTipoNotificacao()
     }.toString();
   }

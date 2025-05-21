@@ -11,11 +11,21 @@ abstract class Pessoa {
   String? _nome;
   String _sobrenome = "";
   String _endereco = "";
+  String _celular = "";
+  String _email = "";
+  String _token = "";
   TipoNotificacao _tipoNotificacao = TipoNotificacao.NENHUM;
 
   // Construtor é uma forma de força as pessoas a escrever os dados padroes
 
-  Pessoa(String nome, String sobrenome, String endereco, TipoNotificacao tipoNotificacao ) {
+  Pessoa(
+    String nome,
+    String sobrenome,
+    String endereco,
+    String celular,
+    String email, {
+    TipoNotificacao tipoNotificacao = TipoNotificacao.NENHUM,
+  }) {
     _nome = nome;
     _sobrenome = sobrenome;
     _endereco = endereco;
@@ -39,6 +49,19 @@ abstract class Pessoa {
     _endereco = endereco;
   }
 
+  void setCelular(String celular) {
+    _celular = celular;
+  }
+
+  void setEmail(String email) {
+    _email = email;
+  }
+
+    void setToken(String token) {
+    _token = token;
+  }
+
+
   void setTipoNotificacao(TipoNotificacao tipoNotificacao) {
     _tipoNotificacao = tipoNotificacao;
   }
@@ -61,15 +84,31 @@ abstract class Pessoa {
     return _endereco;
   }
 
+  String getCelular() {
+    return _celular;
+  }
+
+  String getEmail() {
+    return _email;
+  }
+
+  String getToken() {
+    return _token;
+  }
+
+
   // Vamos sobrescrever criando um MAP
   // Com chave e valor
   @override
   String toString() {
     // TODO: implement toString
     return {
-      "Nome": _nome,
-      "Sobrenome": _sobrenome,
-      "Endereco": _endereco,
+      "Nome": getNome(),
+      "Sobrenome": getSobrenome(),
+      "Endereco": getEndereco(),
+      "Celular": getCelular(),
+      "Email": getEmail(),
+      "TipoNotificacao": getTipoNotificacao(),
     }.toString(); // Nao podemos retornar um MAP aqui, para isso convertemos para toString.
   }
 }

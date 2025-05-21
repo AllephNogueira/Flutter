@@ -1,5 +1,3 @@
-import 'dart:html_common';
-
 import 'package:dart_poo/Enum/tipo_notificacao.dart';
 import 'package:dart_poo/classes/Pessoa.dart';
 
@@ -11,8 +9,8 @@ class PessoaFisica extends Pessoa {
   // Repara que estamos pegando apenas o nome e endereco que esta vindo de outra classe
   // Dentro do super é oque vai vir da classe pai
 
-  PessoaFisica(String nome, String sobrenome, String endereco, String cpf, TipoNotificacao tipoNotificacao)
-    : super(nome, endereco, endereco, tipoNotificacao) {
+  PessoaFisica(String nome, String sobrenome, String endereco, String cpf, String celular, String email ,{TipoNotificacao tipoNotificacao = TipoNotificacao.NENHUM})
+    : super(nome, endereco, endereco, celular, email, tipoNotificacao : tipoNotificacao) {
     _cpf = cpf;
   }
 
@@ -33,7 +31,9 @@ class PessoaFisica extends Pessoa {
       "Nome": super.getNome(),
       "Sobrenome": super.getSobrenome(),
       "Endereco": super.getEndereco(),
-      "CPF": _cpf,
+      "CPF": getCpf(),
+      "Celular" : super.getCelular(),
+      "Email" : super.getEmail(),
       "TipoNotificacao" : super.getTipoNotificacao()
     }.toString();
   }

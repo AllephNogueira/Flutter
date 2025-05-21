@@ -2,6 +2,7 @@ import 'package:dart_poo/Enum/tipo_notificacao.dart';
 import 'package:dart_poo/classes/Pessoa.dart';
 import 'package:dart_poo/classes/PessoaFisica.dart';
 import 'package:dart_poo/classes/PessoaJuridica.dart';
+import 'package:dart_poo/service/EnviarNotificacao.dart';
 
 void main(List<String> arguments) {
   // NAO RECOMENDADO
@@ -25,7 +26,9 @@ void main(List<String> arguments) {
     "Nogueira",
     "Duarte Branco 26",
     "15679025701",
-    TipoNotificacao.EMAIL,
+    "121123123123",
+    "hashdhasd@",
+    tipoNotificacao: TipoNotificacao.PUSH_NOTIFICACAO,
   );
 
   var usuarioFisico2 = new PessoaFisica(
@@ -33,7 +36,8 @@ void main(List<String> arguments) {
     "Nogueira",
     "Duarte Branco 26",
     "15679025701",
-    TipoNotificacao.SMS,
+    "121123123123",
+    "hashdhasd@",
   );
 
   var pessoaJuridica = new Pessoajuridica(
@@ -41,7 +45,13 @@ void main(List<String> arguments) {
     "Pet",
     "sagyasd",
     "000000000",
-    TipoNotificacao.PUSH_NOTIFICACAO,
+    "121123123123",
+    "hashdhasd@",
+    tipoNotificacao: TipoNotificacao.SMS,
   );
-  
+
+  Enviarnotificacao enviarNotificacao = Enviarnotificacao();
+  enviarNotificacao.notificar(usuarioFisico2);
+  enviarNotificacao.notificar(usuarioFisico);
+  enviarNotificacao.notificar(pessoaJuridica);
 }
