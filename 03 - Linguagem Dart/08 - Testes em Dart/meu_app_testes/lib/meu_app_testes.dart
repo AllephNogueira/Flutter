@@ -1,3 +1,7 @@
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+
 double calcularDesconto(double valor, double desconto, bool percentual) {
   if (valor <= 0) {
     throw ArgumentError("O valor do produto não pode ser zero.");
@@ -25,4 +29,14 @@ String retornaString() {
 
 String convertUpperCase(String texto) {
   return texto.toUpperCase();
+}
+
+Future<Map<dynamic, dynamic>> retornarCEP(String cep) async {
+  var url = Uri.parse("https://viacep.com.br/ws/$cep/json/"); // nossa URL
+  var retorno = await http.get(
+    url,
+  ); // manda ele esperar ate que o get esteja com os dados
+  var decodedResponse = jsonDecode(utf8.decode(retorno.bodyBytes)) as Map;
+
+  return decodedResponse; // Retornar o corpo
 }
