@@ -17,10 +17,13 @@ void main(List<String> arguments) {
   print("\n\n EXEMPLPOS DE LISTAS \n\n");
   meuprimeiroprojeto.listas();
 
+<<<<<<< HEAD
 
   print("\n\n EXEMPLPOS DE MAP \n\n");
   map.map();
 
+=======
+>>>>>>> 0748e6e3bbcb6a26f0df0124ff99ba57f4d4f68c
   print("\n\n\n EXEMPLOS DE FUNCOES A CIMA \n\n\n");
 
   // Duas formas de declarar variaveis em Dart
