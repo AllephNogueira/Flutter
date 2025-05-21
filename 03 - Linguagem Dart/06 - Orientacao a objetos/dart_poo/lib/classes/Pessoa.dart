@@ -1,4 +1,6 @@
-class Pessoa {
+import 'package:dart_poo/Enum/tipo_notificacao.dart';
+
+abstract class Pessoa {
   // No dart devemos inicializar os atributos
   // Seja com o null safaty
   // Ou vazio
@@ -9,13 +11,15 @@ class Pessoa {
   String? _nome;
   String _sobrenome = "";
   String _endereco = "";
+  TipoNotificacao _tipoNotificacao = TipoNotificacao.NENHUM;
 
   // Construtor é uma forma de força as pessoas a escrever os dados padroes
 
-  Pessoa(String nome, String sobrenome, String endereco) {
+  Pessoa(String nome, String sobrenome, String endereco, TipoNotificacao tipoNotificacao ) {
     _nome = nome;
     _sobrenome = sobrenome;
     _endereco = endereco;
+    _tipoNotificacao = tipoNotificacao;
   }
 
   // Nao é recomendado a gente usar diretamente os atributos
@@ -33,6 +37,14 @@ class Pessoa {
 
   void setEndereco(String endereco) {
     _endereco = endereco;
+  }
+
+  void setTipoNotificacao(TipoNotificacao tipoNotificacao) {
+    _tipoNotificacao = tipoNotificacao;
+  }
+
+  TipoNotificacao getTipoNotificacao() {
+    return _tipoNotificacao;
   }
 
   // Gets funcoes para capturar os dados fora.
