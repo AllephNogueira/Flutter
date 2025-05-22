@@ -12,21 +12,40 @@ class HomePage extends StatefulWidget {
 
 class _MyWidgetState extends State<HomePage> {
   var numeroGerado = 0;
+  var vezesClicado = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // AQUI É ONDE VAI NOSSOS WIDGET
       appBar: AppBar(
-        title: Text("Atlatic Bank", style: GoogleFonts.pacifico()),
+        title: Text(
+          "Atlatic Bank", //style: GoogleFonts.pacifico()),
+        ),
         centerTitle: true,
       ), // App bar
-      body: Center(child: Text(numeroGerado.toString())),
+      body: Center(
+        child: Column(
+          mainAxisAlignment:
+              MainAxisAlignment.center, // Centraliza os textos verticalmente
+          children: [
+            // Aceita varios filhos aqui dentro
+            // No caso aqui podemos adicionar varios textos.. botoes..
+            Text(
+              numeroGerado.toString(),
+              //style: GoogleFonts.aBeeZee(),), Poderiamos adicionar uma fonte aqui
+            ),
+            SizedBox(height: 10), // Espaço entre os itens
+            Text("Botao clicado $vezesClicado"),
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
             numeroGerado =
                 GeradorNumerosAleatoriosServices.gerarNumeroAleatorio(100);
+            vezesClicado++;
           });
         },
         child: const Icon(Icons.add),
