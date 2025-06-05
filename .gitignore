@@ -1,0 +1,71 @@
+# Arquivos e diretórios gerados pelo Flutter/Dart SDK
+.dart_tool/
+.flutter-plugins-dependencies
+.flutter-plugins
+.packages
+.ios/Flutter/Generated.xcconfig
+.ios/Flutter/flutter_export_environment.sh
+.android/local.properties
+.android/key.properties
+.android/app/build/
+.android/app/src/main/assets/flutter_assets/
+.android/app/.gradle
+.android/gradle/
+.android/gradlew
+.android/gradlew.bat
+
+# Arquivos e diretórios de build
+build/
+*.iml
+android/local.properties
+ios/.symlinks/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/XCFrameworks/
+ios/Runner/*.xcodeproj/project.xcworkspace/
+ios/Runner/*.xcodeproj/xcuserdata/
+ios/Runner/*.xcworkspace/xcuserdata/
+ios/Runner/GeneratedPluginRegistrant.m
+ios/Runner/info.plist # Se você tem alterações locais aqui, mas geralmente é gerado. Se tiver info.plist com configurações locais, considere não ignorar.
+
+# Arquivos de IDE e editor
+.idea/
+.vscode/
+*.swp
+*.bak
+*.swo
+*~
+.DS_Store # macOS
+Thumbs.db # Windows
+
+# Gerenciador de dependências (se usar pub cache global)
+.pub-cache/
+
+# Teste e cobertura de código
+coverage/
+
+# Logs e temporários
+*.log
+*.temp
+temp/
+
+# Arquivos do APK/IPA (versões finais do app)
+*.apk
+*.ap_
+*.aab
+*.ipa
+*.app
+
+# Arquivos de configurações de segredos/chaves (IMPORTANTES!)
+# Se você tiver arquivos com chaves de API, senhas ou outros segredos,
+# adicione-os aqui. NUNCA commite segredos para o Git.
+# Exemplo:
+# lib/config/secrets.dart
+# assets/config.json
+# .env
+
+# Exceções (arquivos que você quer incluir mesmo estando em um diretório ignorado)
+# Por exemplo, se você tem um arquivo específico dentro de 'build' que precisa ser versionado
+#!build/algum_arquivo_que_preciso.txt
