@@ -85,28 +85,46 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              flex: 1,
-              child: Container(color: Colors.blue, child: Text("Nome:")),
-            ),
-            Expanded(
-              flex: 3,
-              child: Container(
-                color: Colors.amber,
-                child: Text("Alleph Nogueira"),
+      body: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                flex: 1,
+                child: Container(color: Colors.blue, child: Text("Nome:")),
               ),
-            ),
+              Expanded(
+                flex: 3,
+                child: Container(
+                  color: Colors.amber,
+                  child: Text("Alleph Nogueira"),
+                ),
+              ),
 
-            Expanded(
-              flex: 0,
-              child: Container(color: Colors.red, child: Text("M")),
-            ),
-          ],
-        ),
+              Expanded(
+                flex: 0,
+                child: Container(color: Colors.red, child: Text("M")),
+              ),
+            ],
+          ),
+
+          Row(
+            children: [
+              SizedBox(
+                height: 100,
+                child: Container(color: Colors.black26, child: Text("Campo1")),
+              ),
+              SizedBox(
+                height: 80,
+                child: Container(color: Colors.black26, child: Text("Campo1")),
+              ),
+              SizedBox(
+                height: 35,
+                child: Container(color: Colors.black26, child: Text("Campo1")),
+              ),
+            ],
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
