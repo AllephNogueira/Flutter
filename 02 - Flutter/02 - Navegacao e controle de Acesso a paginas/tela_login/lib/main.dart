@@ -148,13 +148,35 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
 
               SizedBox(height: 30),
+
               Container(
                 width: double.infinity,
                 margin: EdgeInsets.symmetric(horizontal: 30),
-                color: const Color.fromARGB(255, 34, 4, 102),
-                height: 30,
                 alignment: Alignment.center,
-                child: Text("ENTRAR", style: TextStyle(color: Colors.white)),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: TextButton(
+                    onPressed: () {},
+                    style: ButtonStyle(
+                      backgroundColor: WidgetStateProperty.all(
+                        const Color.fromARGB(255, 130, 68, 143),
+                      ),
+                      shape: WidgetStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                      ),
+                    ),
+                    child: Text(
+                      "Entrar",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                ),
               ),
 
               Expanded(child: Container()),
