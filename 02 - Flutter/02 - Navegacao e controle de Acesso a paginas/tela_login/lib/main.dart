@@ -47,7 +47,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
-
         body: SizedBox(
           /* Dizendo que nosso container pode ocupar toda a largura | Assim colocamos ele no meio. */
           width: double.infinity,
@@ -98,52 +97,59 @@ class _MyHomePageState extends State<MyHomePage> {
                 margin: EdgeInsets.symmetric(horizontal: 30),
                 height: 30,
                 alignment: Alignment.center,
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: Text(
-                        "Digite seu e-mail:",
-                        style: TextStyle(color: Colors.white),
+                child: TextField(
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.only(top: 0),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color.fromARGB(255, 130, 68, 143),
                       ),
                     ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      flex: 3,
-                      child: Text(
-                        "email",
-                        style: TextStyle(color: Colors.white),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color.fromARGB(255, 130, 68, 143),
                       ),
                     ),
-                  ],
+                    hintText: "E-mail",
+                    hintStyle: TextStyle(color: Colors.white),
+                    prefixIcon: Icon(
+                      Icons.person,
+                      color: Color.fromARGB(255, 130, 68, 143),
+                    ),
+                  ),
                 ),
               ),
 
-              SizedBox(height: 10),
+              SizedBox(height: 25),
 
               Container(
                 width: double.infinity,
                 margin: EdgeInsets.symmetric(horizontal: 30),
                 height: 30,
                 alignment: Alignment.center,
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: Text(
-                        "Digite sua senha:",
-                        style: TextStyle(color: Colors.white),
+                child: TextField(
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.only(top: 0),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color.fromARGB(255, 130, 68, 143),
                       ),
                     ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      flex: 3,
-                      child: Text(
-                        "senha",
-                        style: TextStyle(color: Colors.white),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color.fromARGB(255, 130, 68, 143),
                       ),
                     ),
-                  ],
+                    hintText: "Senha",
+                    hintStyle: TextStyle(color: Colors.white),
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      color: Color.fromARGB(255, 130, 68, 143),
+                    ),
+                    suffixIcon: Icon(Icons.visibility_off, color: Colors.white),
+                  ),
                 ),
               ),
 
