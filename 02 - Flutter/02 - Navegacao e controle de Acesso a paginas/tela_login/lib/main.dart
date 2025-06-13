@@ -29,24 +29,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  String email = "";
+  String senha = "";
+  bool isObscureText = true;
 
   @override
   Widget build(BuildContext context) {
-    String email = "";
-    String senha = "";
-
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
@@ -140,6 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 30,
                     alignment: Alignment.center,
                     child: TextField(
+                      obscureText: isObscureText,
                       onChanged: (value) {
                         senha = value;
                       },
@@ -162,9 +151,18 @@ class _MyHomePageState extends State<MyHomePage> {
                           Icons.lock,
                           color: Color.fromARGB(255, 130, 68, 143),
                         ),
-                        suffixIcon: Icon(
-                          Icons.visibility_off,
-                          color: Colors.white,
+                        suffixIcon: InkWell(
+                          onTap: () {
+                            setState(() {
+                              isObscureText = !isObscureText;
+                            });
+                          },
+                          child: Icon(
+                            isObscureText
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
