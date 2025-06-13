@@ -44,6 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    String email = "";
+    String senha = "";
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
@@ -103,6 +106,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 30,
                     alignment: Alignment.center,
                     child: TextField(
+                      onChanged: (value) {
+                        email = value;
+                      },
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top: 0),
@@ -134,6 +140,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 30,
                     alignment: Alignment.center,
                     child: TextField(
+                      onChanged: (value) {
+                        senha = value;
+                      },
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top: 0),
@@ -170,7 +179,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: SizedBox(
                       width: double.infinity,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          print(email);
+                          print(senha);
+                        },
                         style: ButtonStyle(
                           backgroundColor: WidgetStateProperty.all(
                             const Color.fromARGB(255, 130, 68, 143),
@@ -224,7 +236,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
 
-                  const SizedBox(height: 60),
+                  const SizedBox(height: 100),
                 ],
               ),
             ),
