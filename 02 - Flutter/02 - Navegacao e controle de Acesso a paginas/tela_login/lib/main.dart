@@ -29,8 +29,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String email = "";
-  String senha = "";
+  TextEditingController emailController = TextEditingController(
+    text: "email@email.com",
+  );
+  var senhaController = TextEditingController(text: "suasenhaaqui");
+
   bool isObscureText = true;
 
   @override
@@ -94,8 +97,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 30,
                     alignment: Alignment.center,
                     child: TextField(
+                      controller: emailController,
                       onChanged: (value) {
-                        email = value;
+                        debugPrint(value);
                       },
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -128,10 +132,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 30,
                     alignment: Alignment.center,
                     child: TextField(
+                      controller: senhaController,
                       obscureText: isObscureText,
-                      onChanged: (value) {
-                        senha = value;
-                      },
+
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top: 0),
@@ -178,8 +181,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: double.infinity,
                       child: TextButton(
                         onPressed: () {
-                          print(email);
-                          print(senha);
+                          debugPrint(emailController.text);
+                          debugPrint(senhaController.text);
                         },
                         style: ButtonStyle(
                           backgroundColor: WidgetStateProperty.all(
