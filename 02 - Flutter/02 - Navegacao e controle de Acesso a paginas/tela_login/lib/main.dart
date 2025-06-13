@@ -47,177 +47,187 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
-        body: SizedBox(
-          /* Dizendo que nosso container pode ocupar toda a largura | Assim colocamos ele no meio. */
-          width: double.infinity,
+        body: SingleChildScrollView(
+          child: SizedBox(
+            /* Dizendo que nosso container pode ocupar toda a largura | Assim colocamos ele no meio. */
+            width: double.infinity,
 
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              /* Imagina como se aqui fosse um item, mas esse item esta transparente, apenas "Ocupando aquele espaço" */
-              const SizedBox(height: 50),
-
-              Row(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: MediaQuery.of(context).size.height,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Expanded(child: Container()),
-                  Expanded(
-                    flex: 8,
-                    child: Image.network(
-                      "https://hermes.digitalinnovation.one/assets/diome/logo.png",
+                  /* Imagina como se aqui fosse um item, mas esse item esta transparente, apenas "Ocupando aquele espaço" */
+                  const SizedBox(height: 50),
+
+                  Row(
+                    children: [
+                      Expanded(child: Container()),
+                      Expanded(
+                        flex: 8,
+                        child: Image.network(
+                          "https://hermes.digitalinnovation.one/assets/diome/logo.png",
+                        ),
+                      ),
+                      Expanded(child: Container()),
+                    ],
+                  ),
+
+                  SizedBox(height: 20),
+
+                  const Text(
+                    "Já tem cadastro?",
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
                     ),
                   ),
-                  Expanded(child: Container()),
-                ],
-              ),
-
-              SizedBox(height: 20),
-
-              const Text(
-                "Já tem cadastro?",
-                style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-              ),
-              SizedBox(height: 10),
-              const Text(
-                "Faça seu login e make the change._",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.white,
-                ),
-              ),
-
-              SizedBox(height: 50),
-
-              Container(
-                width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: 30),
-                height: 30,
-                alignment: Alignment.center,
-                child: TextField(
-                  style: TextStyle(color: Colors.white),
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(top: 0),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color.fromARGB(255, 130, 68, 143),
-                      ),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color.fromARGB(255, 130, 68, 143),
-                      ),
-                    ),
-                    hintText: "E-mail",
-                    hintStyle: TextStyle(color: Colors.white),
-                    prefixIcon: Icon(
-                      Icons.person,
-                      color: Color.fromARGB(255, 130, 68, 143),
+                  SizedBox(height: 10),
+                  const Text(
+                    "Faça seu login e make the change._",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white,
                     ),
                   ),
-                ),
-              ),
 
-              SizedBox(height: 25),
+                  SizedBox(height: 50),
 
-              Container(
-                width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: 30),
-                height: 30,
-                alignment: Alignment.center,
-                child: TextField(
-                  style: TextStyle(color: Colors.white),
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(top: 0),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color.fromARGB(255, 130, 68, 143),
-                      ),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color.fromARGB(255, 130, 68, 143),
-                      ),
-                    ),
-                    hintText: "Senha",
-                    hintStyle: TextStyle(color: Colors.white),
-                    prefixIcon: Icon(
-                      Icons.lock,
-                      color: Color.fromARGB(255, 130, 68, 143),
-                    ),
-                    suffixIcon: Icon(Icons.visibility_off, color: Colors.white),
-                  ),
-                ),
-              ),
-
-              SizedBox(height: 30),
-
-              Container(
-                width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: 30),
-                alignment: Alignment.center,
-                child: SizedBox(
-                  width: double.infinity,
-                  child: TextButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                      backgroundColor: WidgetStateProperty.all(
-                        const Color.fromARGB(255, 130, 68, 143),
-                      ),
-                      shape: WidgetStateProperty.all(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4),
+                  Container(
+                    width: double.infinity,
+                    margin: EdgeInsets.symmetric(horizontal: 30),
+                    height: 30,
+                    alignment: Alignment.center,
+                    child: TextField(
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(top: 0),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 130, 68, 143),
+                          ),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 130, 68, 143),
+                          ),
+                        ),
+                        hintText: "E-mail",
+                        hintStyle: TextStyle(color: Colors.white),
+                        prefixIcon: Icon(
+                          Icons.person,
+                          color: Color.fromARGB(255, 130, 68, 143),
                         ),
                       ),
                     ),
+                  ),
+
+                  SizedBox(height: 25),
+
+                  Container(
+                    width: double.infinity,
+                    margin: EdgeInsets.symmetric(horizontal: 30),
+                    height: 30,
+                    alignment: Alignment.center,
+                    child: TextField(
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(top: 0),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 130, 68, 143),
+                          ),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 130, 68, 143),
+                          ),
+                        ),
+                        hintText: "Senha",
+                        hintStyle: TextStyle(color: Colors.white),
+                        prefixIcon: Icon(
+                          Icons.lock,
+                          color: Color.fromARGB(255, 130, 68, 143),
+                        ),
+                        suffixIcon: Icon(
+                          Icons.visibility_off,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  SizedBox(height: 30),
+
+                  Container(
+                    width: double.infinity,
+                    margin: EdgeInsets.symmetric(horizontal: 30),
+                    alignment: Alignment.center,
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: TextButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStateProperty.all(
+                            const Color.fromARGB(255, 130, 68, 143),
+                          ),
+                          shape: WidgetStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                          ),
+                        ),
+                        child: Text(
+                          "Entrar",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  Expanded(child: Container()),
+                  SizedBox(height: 10),
+
+                  Container(
+                    width: double.infinity,
+                    margin: EdgeInsets.symmetric(horizontal: 30),
+                    height: 30,
+                    alignment: Alignment.center,
                     child: Text(
-                      "Entrar",
+                      "Esqueci minha senha",
                       style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
+                        color: Colors.amber,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
-                ),
-              ),
 
-              Expanded(child: Container()),
-              SizedBox(height: 10),
-
-              Container(
-                width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: 30),
-                height: 30,
-                alignment: Alignment.center,
-                child: Text(
-                  "Esqueci minha senha",
-                  style: TextStyle(
-                    color: Colors.amber,
-                    fontWeight: FontWeight.w400,
+                  Container(
+                    width: double.infinity,
+                    margin: EdgeInsets.symmetric(horizontal: 30),
+                    height: 30,
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Criar conta",
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
                   ),
-                ),
-              ),
 
-              Container(
-                width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: 30),
-                height: 30,
-                alignment: Alignment.center,
-                child: Text(
-                  "Criar conta",
-                  style: TextStyle(
-                    color: Colors.green,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
+                  const SizedBox(height: 60),
+                ],
               ),
-
-              const SizedBox(height: 60),
-            ],
+            ),
           ),
         ),
       ),
