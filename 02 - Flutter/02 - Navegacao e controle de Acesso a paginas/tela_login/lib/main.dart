@@ -29,10 +29,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  TextEditingController emailController = TextEditingController(
-    text: "email@email.com",
-  );
-  var senhaController = TextEditingController(text: "suasenhaaqui");
+  TextEditingController emailController = TextEditingController(text: "");
+  var senhaController = TextEditingController(text: "");
 
   bool isObscureText = true;
 
@@ -181,8 +179,19 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: double.infinity,
                       child: TextButton(
                         onPressed: () {
-                          debugPrint(emailController.text);
-                          debugPrint(senhaController.text);
+                          if (emailController.text.trim() ==
+                                  "allephn@hotmail.com.br" &&
+                              senhaController.text.trim() == "12345678") {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text("Login efetuado com sucesso."),
+                              ),
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("Dados incorretos.")),
+                            );
+                          }
                         },
                         style: ButtonStyle(
                           backgroundColor: WidgetStateProperty.all(
