@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tela_login/pages/dados_cadastrais.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -26,7 +27,18 @@ class _MainPageState extends State<MainPage> {
                     width: double.infinity,
                     child: InkWell(
                       child: const Text("Dados cadastrados"),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DadosCadastrais(
+                              texto: "Cadastro",
+                              dados: ["Alleph", "Nogueira"],
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),
