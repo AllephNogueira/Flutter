@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tela_login/repository/nivel_repository.dart';
 import 'package:tela_login/shared/widgets/text_label.dart';
 
 class DadosCadastrais extends StatefulWidget {
@@ -12,6 +13,15 @@ class _DadosCadastraisState extends State<DadosCadastrais> {
   TextEditingController nomeController = TextEditingController(text: "");
   var dataNascimentoController = TextEditingController(text: "");
   DateTime? dataDeNascimento;
+  var nivelRepository = NivelRepository();
+  var niveis = [];
+  var nivelSelecionado = "";
+
+  @override
+  void initState() {
+    niveis = nivelRepository.retornaNiveis();
+    super.initState();
+  }
 
   Text returnText(String texto) {
     return Text(
@@ -55,6 +65,25 @@ class _DadosCadastraisState extends State<DadosCadastrais> {
                   dataNascimentoController.text = "Usuario nao informou a data";
                 }
               },
+            ),
+            SizedBox(height: 10),
+            TextLabel(texto: "Nivel de experiência"),
+
+            Column(
+              children: niveis.map((nivel) {
+                return RadioListTile(
+                  title: Text(nivel.toString()),
+                  selected: nivel == nivelSelecionado,
+                  value: nivel.toString(), // valor único para cada opção
+                  groupValue: nivelSelecionado, // valor atualmente selecionado
+                  onChanged: (value) {
+                    setState(() {
+                      nivelSelecionado = value.toString();
+                    });
+                    print(value);
+                  },
+                );
+              }).toList(),
             ),
 
             TextButton(
