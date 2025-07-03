@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tela_login/repository/linguagens_repository.dart';
 import 'package:tela_login/repository/nivel_repository.dart';
 import 'package:tela_login/shared/widgets/text_label.dart';
 
@@ -17,9 +18,14 @@ class _DadosCadastraisState extends State<DadosCadastrais> {
   var niveis = [];
   var nivelSelecionado = "";
 
+  var linguagensRepository = LinguagensRepository();
+  var linguagens = [];
+  var linguagensSelecionadas = [];
+
   @override
   void initState() {
     niveis = nivelRepository.retornaNiveis();
+    linguagens = linguagensRepository.retornaLinguagens();
     super.initState();
   }
 
@@ -36,8 +42,7 @@ class _DadosCadastraisState extends State<DadosCadastrais> {
       appBar: AppBar(title: Text("Cadastro")),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: [
             returnText("Nome"),
             TextField(controller: nomeController),
@@ -84,6 +89,34 @@ class _DadosCadastraisState extends State<DadosCadastrais> {
                   },
                 );
               }).toList(),
+            ),
+
+            TextLabel(texto: "Linaguagens preferidas"),
+
+            Column(
+              children: linguagens
+                  .map(
+                    (item) => CheckboxListTile(
+                      dense: true,
+                      title: Text(item.toString()),
+                      value: linguagensSelecionadas.contains(
+                        item,
+                      ), // Se o item tiver na lista, vamos deixar ele marcado, se nao remove..
+                      onChanged: (bool? value) {
+                        if (value!) {
+                          setState(() {
+                            linguagensSelecionadas.add(item);
+                            print(linguagensSelecionadas);
+                          });
+                        } else {
+                          setState(() {
+                            linguagensSelecionadas.remove(item);
+                          });
+                        }
+                      },
+                    ),
+                  )
+                  .toList(),
             ),
 
             TextButton(
