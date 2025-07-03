@@ -22,6 +22,8 @@ class _DadosCadastraisState extends State<DadosCadastrais> {
   var linguagens = [];
   var linguagensSelecionadas = [];
 
+  double salarioEscolhido = 0.0;
+
   @override
   void initState() {
     niveis = nivelRepository.retornaNiveis();
@@ -119,11 +121,35 @@ class _DadosCadastraisState extends State<DadosCadastrais> {
                   .toList(),
             ),
 
+            /* Estamos fazendo um Slide para o usuario selecionar a sua pretenção salarial
+            Ela vai de 0 a 9500
+            value - vai ser o valor que vai ficar já pré configurado
+
+            Precisamos passar um double com o value que já vamos deixar pré configurado
+
+            Agora vamos colocar o value, como salario escolhido (Deixamos ele definido como 0)
+            */
+            TextLabel(
+              texto:
+                  "Pretenção salarial R\$ ${salarioEscolhido.toStringAsFixed(2)}",
+            ),
+
+            Slider(
+              min: 0,
+              max: 9500,
+              value: salarioEscolhido,
+              onChanged: (double value) {
+                setState(() {
+                  salarioEscolhido = value; // Dessa forma vai ser dinamico
+                });
+              },
+            ),
+
             TextButton(
               onPressed: () {
                 print(nomeController.text.toString());
               },
-              child: Text("Capturar texto"),
+              child: Text("Salvar"),
             ),
           ],
         ),
